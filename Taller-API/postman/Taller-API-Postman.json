@@ -1,0 +1,69 @@
+{
+  "info": {
+    "name": "API Videojuegos",
+    "_postman_id": "12345-abcde",
+    "description": "Collección API REST Videojuegos",
+    "schema": "http://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear Desarrolladora",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/desarrolladoras",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api","desarrolladoras"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Nintendo\",\n  \"sitioWeb\": \"https://nintendo.com\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Crear Videojuego",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/videojuegos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api","videojuegos"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Zelda BOTW\",\n  \"precio\": 250000,\n  \"codigoRegistro\": \"ZELDA001\",\n  \"genero\": \"RPG\",\n  \"desarrolladora\": { \"id\": 1 }\n}"
+        }
+      }
+    },
+    {
+      "name": "Listar Videojuegos",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/videojuegos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api","videojuegos"]
+        }
+      }
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TallerApiApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(TallerApiApplication.class, args);
 	}
 
