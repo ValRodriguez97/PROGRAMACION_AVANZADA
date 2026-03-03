@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/videojuegos")
 @RequiredArgsConstructor
 public class VideojuegoController {
     private final VideojuegoService service;
@@ -51,9 +51,9 @@ public class VideojuegoController {
         return service.buscarPorRango(min, max);
     }
 
-    @PatchMapping("/{id/descuento")
-    public Videojuego descuento (@PathVariable Long id, @RequestParam double procentaje){
-        return service.aplicarDescuento(id, procentaje);
+    @PatchMapping("/{id}/descuento")
+    public Videojuego descuento (@PathVariable Long id, @RequestParam double porcentaje){
+        return service.aplicarDescuento(id, porcentaje);
     }
 
 }
