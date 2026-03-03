@@ -28,6 +28,36 @@ public class VideojuegoService {
         return videojuego;
     }
 
+    public List<Videojuego> buscarPorTitulo(String titulo){
+        if (titulo == null || titulo.isBlank()){
+            throw new ResourceNotFoundException("Titulo no encontrado");
+        }
+        List<Videojuego> lista = videoJuegoRepository.findByTituloContainingIgnoreCase(titulo);
+        lista.forEach(this::calcularIva);
+        return lista;
+    }
+
+    public List<Videojuego> buscarPorRango(Double min, Double max){
+        if(min == null || max == null){
+            throw new ResourceNotFoundException("Rango no encontrado");
+        }
+        if(min < 0 || max < 0){
+            throw new IllegalArgumentException("El precio no puede ser negativo");
+        }
+        if( min > max){
+            throw new IllegalArgumentException("El precio mínimo no puede ser mayor que el precio máximo");
+        }
+
+        List<Videojuego> lista = videoJuegoRepository.buscarPorRangoPrecio(min, max);
+        lista.forEach(this::calcularIva);
+        return lista;
+    }
+
+    public void eliminarPorId(Long id){
+        Videojuego videojuego = videoJuegoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Videojuego no encontrado"));
+        videoJuegoRepository.delete(videojuego);
+    }
+
     public Videojuego guardar(Videojuego videojuego){
         if (videojuego.getPrecio() < 0) throw new IllegalArgumentException("El precio no puede ser negativo");
         if(videojuego.getTitulo() == null || videojuego.getTitulo().isBlank()) throw new IllegalArgumentException("El titulo no puede estar vacio");
