@@ -1,9 +1,0 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
-
-/* Configuración para usar Be Vietnam Pro como fuente principal */
-:root {
-  --font-display: 'Be Vietnam Pro', sans-serif;
-  --font-inter: 'Inter', sans-serif;
-}
